@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/media-element-syncer.svg)](https://badge.fury.io/js/media-element-syncer)
 # Media Element Syncer
 
 Synchronise two or more HTML5 media elements. Similar to the [unimplemented `MediaController` api](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controller).
