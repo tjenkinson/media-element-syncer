@@ -231,7 +231,6 @@ function () {
       }
 
       var sourceTime = this._source.currentTime;
-      var sourcePaused = this._source.paused || this._source.ended;
       var sourcePlaybackRate = this._source.playbackRate;
 
       this._children.forEach(function (child) {
@@ -239,6 +238,7 @@ function () {
           var config = _this2._config.get(child);
 
           var targetTime = sourceTime + config.offset / 1000;
+          var sourcePaused = _this2._source.paused || _this2._source.ended || targetTime < 0 || targetTime >= child.duration;
           var currentTime = child.currentTime;
           var diff = targetTime - currentTime;
           var rate = Math.max(0, (diff + _this2._correctionTime) / _this2._correctionTime * sourcePlaybackRate);

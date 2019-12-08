@@ -63,12 +63,16 @@ export class MediaElementSyncer {
     }
 
     const sourceTime = this._source.currentTime;
-    const sourcePaused = this._source.paused || this._source.ended;
     const sourcePlaybackRate = this._source.playbackRate;
     this._children.forEach(child => {
       try {
         const config = this._config.get(child);
         const targetTime = sourceTime + config.offset / 1000;
+        const sourcePaused =
+          this._source.paused ||
+          this._source.ended ||
+          targetTime < 0 ||
+          targetTime >= child.duration;
         const currentTime = child.currentTime;
         const diff = targetTime - currentTime;
         const rate = Math.max(
