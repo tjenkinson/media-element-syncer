@@ -41,4 +41,4 @@ The optional second param to `MediaElementSyncer` takes an object which has the 
 
 ## Demo
 
-The code for the demo is [here](/src/demo.html).
+The code for the demo is [here](/src/demo.html) and there is a hosted version [here](https://clever-pike-bb0ab3.netlify.com/demo.html).
