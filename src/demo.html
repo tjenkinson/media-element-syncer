@@ -6,9 +6,19 @@
   <body>
     <div>
       <h1>Media Element Syncer: Demo</h1>
-      <video id="video1" src="./assets/test.mp4" controls></video>
-      <video id="video2" src="./assets/test.mp4" muted></video>
-      <video id="video3" src="./assets/test.mp4" muted></video>
+      <p>
+        Github:
+        <a
+          href="https://github.com/tjenkinson/media-element-syncer"
+          target="_blank"
+          >https://github.com/tjenkinson/media-element-syncer</a
+        >
+      </p>
+      <div>
+        <video id="video1" src="./assets/test.mp4" controls></video>
+        <video id="video2" src="./assets/test.mp4" muted></video>
+        <video id="video3" src="./assets/test.mp4" muted></video>
+      </div>
       <script type="text/javascript">
         const syncer = new MediaElementSyncer.MediaElementSyncer(
           document.getElementById('video1')
