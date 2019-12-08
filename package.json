@@ -1,0 +1,41 @@
+{
+  "name": "media-element-syncer",
+  "version": "0.0.1",
+  "description": "Synchronise two or more html media elements.",
+  "main": "dist/media-element-syncer.js",
+  "scripts": {
+    "build": "parcel build --no-minify --out-dir './dist' --global MediaElementSyncer ./src/media-element-syncer.js",
+    "buildDemo": "parcel build --no-minify --out-dir './demo-build' --global MediaElementSyncer ./src/demo.html",
+    "start": "parcel serve --out-dir './demo-build' --global MediaElementSyncer ./src/demo.html",
+    "prettier": "prettier --write **/*.{js,md,html}"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjenkinson/media-element-syncer.git"
+  },
+  "keywords": [
+    "MediaController",
+    "media",
+    "element",
+    "synchronisation",
+    "sync"
+  ],
+  "author": "Tom Jenkinson <tom@tjenkinson.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjenkinson/media-element-syncer/issues"
+  },
+  "homepage": "https://github.com/tjenkinson/media-element-syncer#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "husky": "^3.1.0",
+    "parcel": "^1.12.4",
+    "prettier": "^1.19.1"
+  }
+}

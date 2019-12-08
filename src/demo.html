@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Media Element Syncer</title>
+    <script type="text/javascript" src="./media-element-syncer.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Media Element Syncer: Demo</h1>
+      <video id="video1" src="./assets/test.mp4" controls></video>
+      <video id="video2" src="./assets/test.mp4" autoplay muted></video>
+      <video id="video3" src="./assets/test.mp4" autoplay muted></video>
+      <script type="text/javascript">
+        const syncer = new MediaElementSyncer.MediaElementSyncer(
+          document.getElementById('video1')
+        );
+        syncer.addChild(document.getElementById('video2'));
+        syncer.addChild(document.getElementById('video3'));
+      </script>
+    </div>
+  </body>
+</html>
