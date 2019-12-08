@@ -1,6 +1,6 @@
 {
   "name": "media-element-syncer",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Synchronise two or more html media elements.",
   "main": "dist/media-element-syncer.js",
   "scripts": {
