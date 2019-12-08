@@ -26,7 +26,7 @@ const destination1 = document.getElementById('destination1');
 const destination2 = document.getElementById('destination2');
 const syncer = new MediaElementSyncer(source);
 syncer.addChild(destination1);
-syncer.addChild(destination2);
+syncer.addChild(destination2, { offset: -1000 });
 
 // syncer.removeChild(destination1);
 ```

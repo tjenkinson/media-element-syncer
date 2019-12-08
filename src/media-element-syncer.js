@@ -11,6 +11,7 @@ export class MediaElementSyncer {
     this._refreshInterval = refreshInterval;
     this._correctionTime = correctionTime / 1000;
     this._seekThreshold = seekThreshold / 1000;
+    this._config = new Map();
     let collecting = false;
     this._eventHandler = () => {
       if (collecting) {
@@ -24,11 +25,12 @@ export class MediaElementSyncer {
     };
   }
 
-  addChild(element) {
+  addChild(element, { offset = 0 } = {}) {
     if (this._children.indexOf(element) === -1) {
       if (!this._children.length) {
         this._addEventListeners(this._source);
       }
+      this._config.set(element, { offset });
       this._children.push(element);
       this._addEventListeners(element);
       this._update();
@@ -38,6 +40,7 @@ export class MediaElementSyncer {
   removeChild(element) {
     const index = this._children.indexOf(element);
     if (index >= 0) {
+      this._config.delete(element);
       this._removeEventListeners(element);
       this._children.splice(index, 1);
       if (!this._children.length) {
@@ -64,8 +67,10 @@ export class MediaElementSyncer {
     const sourcePlaybackRate = this._source.playbackRate;
     this._children.forEach(child => {
       try {
+        const config = this._config.get(child);
+        const targetTime = sourceTime + config.offset / 1000;
         const currentTime = child.currentTime;
-        const diff = sourceTime - currentTime;
+        const diff = targetTime - currentTime;
         const rate = Math.max(
           0,
           ((diff + this._correctionTime) / this._correctionTime) *
@@ -75,7 +80,7 @@ export class MediaElementSyncer {
           sourcePaused ? child.pause() : child.play();
         }
         if (sourcePaused || rate < 0 || Math.abs(diff) >= this._seekThreshold) {
-          child.currentTime = sourceTime;
+          child.currentTime = targetTime;
           child.playbackRate = sourcePlaybackRate;
         } else {
           child.playbackRate = rate;
