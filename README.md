@@ -1,6 +1,6 @@
 # Media Element Syncer
 
-Synchronise two or more HTML5 media elements.
+Synchronise two or more HTML5 media elements. Similar to the [unimplemented `MediaController` api](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controller).
 
 ## How?
 
