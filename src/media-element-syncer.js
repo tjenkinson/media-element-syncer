@@ -64,7 +64,7 @@ export class MediaElementSyncer {
 
     const sourceTime = this._source.currentTime;
     const sourcePlaybackRate = this._source.playbackRate;
-    this._children.forEach(child => {
+    this._children.forEach((child) => {
       try {
         const config = this._config.get(child);
         const targetTime = sourceTime + config.offset / 1000;
@@ -103,13 +103,13 @@ export class MediaElementSyncer {
   }
 
   _addEventListeners(element) {
-    EVENTS.forEach(eventName =>
+    EVENTS.forEach((eventName) =>
       element.addEventListener(eventName, this._eventHandler)
     );
   }
 
   _removeEventListeners(element) {
-    EVENTS.forEach(eventName =>
+    EVENTS.forEach((eventName) =>
       element.removeEventListener(eventName, this._eventHandler)
     );
   }
