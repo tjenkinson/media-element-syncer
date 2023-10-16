@@ -36,7 +36,7 @@
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
     "husky": "^4.2.3",
-    "parcel": "^1.12.4",
+    "parcel": "^2.10.0",
     "prettier": "^2.1.1"
   }
 }
